@@ -6,7 +6,7 @@
 /*   By: rferrero <rferrero@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 11:18:42 by rferrero          #+#    #+#             */
-/*   Updated: 2022/07/04 14:19:48 by rferrero         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:19:46 by rferrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	ft_is_closed_h(t_game *game)
 	}
 	j = 0;
 	i = game->matrix.height - 1;
-	ft_printf("%d %d", game->matrix.width, game->matrix.height);
 	while (game->matrix.map[i][j] != '\0')
 	{
 		if (game->matrix.map[i][j] != '1')

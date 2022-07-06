@@ -6,7 +6,7 @@
 /*   By: rferrero <rferrero@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 22:16:54 by rferrero          #+#    #+#             */
-/*   Updated: 2022/07/04 14:19:49 by rferrero         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:19:42 by rferrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ static void	ft_format_validation(t_game *game)
 	}
 	game->matrix.width = j;
 	game->matrix.height = i;
-	if (game->matrix.width == game->matrix.height)
-		ft_error(game, 3, "\nError!\nMap must be rectangular.\n");
 	if (game->matrix.width - 1 > MAX_CHAR_H || game->matrix.height - 1 > MAX_CHAR_V)
 		ft_error(game, 3, "\nError!\nMap too big for the screen.\n");
 }
