@@ -6,7 +6,7 @@
 /*   By: rferrero <rferrero@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:39:22 by rferrero          #+#    #+#             */
-/*   Updated: 2022/06/29 17:10:23 by rferrero         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:06:57 by rferrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_read_map(t_game *game, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		free(tmp);
+		free(map_str);
 		ft_error(game, 2, "\nError!\nFile broken or does not exist.\n");
 	}
 	while (1)
