@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rferrero <rferrero@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rferrero <rferrero@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 03:55:40 by rferrero          #+#    #+#             */
-/*   Updated: 2022/06/22 16:38:16 by rferrero         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:32:54 by rferrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_read_line(char *line, char **leaks, int fd);
-static char	*ft_check_eof(ssize_t bytes, char *line);
+static char	*ft_read_line(char *line, char **tmp, int fd);
+static char	*ft_check_end(ssize_t bytes, char *line);
 
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*leaks;
+	static char	*tmp;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_OPEN)
 		return (0);
-	if (!leaks)
-		leaks = ft_strdup("");
-	line = ft_strdup(leaks);
-	free(leaks);
-	leaks = NULL;
-	line = ft_read_line(line, &leaks, fd);
+	if (!tmp)
+		tmp = ft_strdup("");
+	line = ft_strdup(tmp);
+	free(tmp);
+	tmp = NULL;
+	line = ft_read_line(line, &tmp, fd);
 	return (line);
 }
 
-static char	*ft_read_line(char *line, char **leaks, int fd)
+static char	*ft_read_line(char *line, char **tmp, int fd)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	ssize_t	bytes_read;
@@ -49,15 +49,15 @@ static char	*ft_read_line(char *line, char **leaks, int fd)
 		line = ft_strjoin_free(line, buffer);
 		if (ft_strchr(line, '\n'))
 		{
-			*leaks = ft_strdup(ft_strchr(line, '\n') + 1);
-			line = ft_substr_free(line, 0, ft_strlen(line) - ft_strlen(*leaks));
+			*tmp = ft_strdup(ft_strchr(line, '\n') + 1);
+			line = ft_substr_free(line, 0, ft_strlen(line) - ft_strlen(*tmp));
 			break ;
 		}
 	}
-	return (ft_check_eof(bytes_read, line));
+	return (ft_check_end(bytes_read, line));
 }
 
-static char	*ft_check_eof(ssize_t bytes, char *line)
+static char	*ft_check_end(ssize_t bytes, char *line)
 {
 	if (!bytes && line[bytes] == '\0')
 	{
