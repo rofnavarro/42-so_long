@@ -30,7 +30,7 @@ To play So_long or integrate it into your projects, follow these steps:
 
 1. Clone the So_long repository:
    ```sh
-   git clone https://github.com/rofnavarro/42-so_long.git
+   git clone git@github.com:rofnavarro/42-so_long.git
    cd 42-so_long
    ```
 
@@ -93,7 +93,7 @@ Para jogar So_long ou integrá-lo em seus projetos, siga estas etapas:
 
 1. Clone o repositório So_long:
    ```sh
-   git clone https://github.com/rofnavarro/42-so_long.git
+   git clone git@github.com:rofnavarro/42-so_long.git
    cd 42-so_long
    ```
 
