@@ -83,7 +83,7 @@ O jogo So_long inclui as seguintes funcionalidades:
 
 - Movimentação do jogador usando as teclas de WASD.
 - Renderização do mapa com paredes, piso e itens colecionáveis.
-- Itens colecionáveis (como moedas) que o jogador pode pegar.
+- Itens colecionáveis (como livros) que o jogador pode pegar.
 - Tratamento de saída quando o jogador atinge um determinado ponto no mapa.
 - Gráficos simples e manipulação de entrada usando Minilibx.
 
